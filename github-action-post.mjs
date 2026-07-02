@@ -79,7 +79,7 @@ function normalizeText(value) {
 }
 
 function isGw3Relevant(text) {
-  return /\b(guild\s*wars\s*3|gw3|guild\s*wars\s*franchise|tyria)\b/i.test(text);
+  return /\b(guild\s*wars\s*3|gw3|guild\s*wars\s*franchise)\b/i.test(text);
 }
 
 function absoluteUrl(url, baseUrl) {
@@ -133,7 +133,10 @@ function parseGuildWars3News(html, source) {
       };
     })
     .filter((item) => item.title && item.url && isAllowedOfficialUrl(item.url))
-    .filter((item) => new URL(item.url).hostname.endsWith("guildwars3.com")));
+    .filter((item) => {
+      const parsed = new URL(item.url);
+      return parsed.hostname.endsWith("guildwars3.com") && parsed.pathname.includes("/news/");
+    }));
 }
 
 function parseGuildWars2News(html, source) {
