@@ -1,6 +1,14 @@
 {
-  "newsInitialized": false,
-  "seenNewsIds": [],
-  "lastCountdownDate": "",
-  "updatedAt": ""
+  "newsInitialized": true,
+  "seenNewsIds": [
+    "https://www.guildwars3.com/en/news/our-guild-wars-philosophy#our guild wars philosophy",
+    "https://www.guildwars3.com/en/news/guild-wars-3-stepping-into-ancient-orr#the setting of guild wars 3: stepping into ancient orr",
+    "https://www.guildwars3.com/en/news/announcing-guild-wars-3#announcing guild wars 3",
+    "https://www.guildwars3.com/en/#ShowCookiePreferences#cookie preferences",
+    "https://www.guildwars2.com/en/news/celebrating-the-announcement-of-guild-wars-3/#celebrating the announcement of guild wars 3",
+    "https://www.guildwars2.com/en/news/future-of-the-guild-wars-franchise/#the future of the guild wars franchise: our commitment to tyria",
+    "https://www.guildwars2.com/en/news/guild-wars-reforged-is-now-available-on-mobile/#cross-play &#038; portable tyria: guild wars reforged is now available on mobile"
+  ],
+  "lastCountdownDate": "2026-07-02",
+  "updatedAt": "2026-07-02T12:28:17.205Z"
 }
