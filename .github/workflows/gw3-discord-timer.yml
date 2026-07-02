@@ -2,8 +2,11 @@ name: GW3 Discord Timer
 
 on:
   schedule:
-    - cron: "0 22 * * *"
+    - cron: "17 */2 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   post-countdown:
@@ -21,3 +24,15 @@ jobs:
         env:
           DISCORD_WEBHOOK_URL: ${{ secrets.GW3_DISCORD_WEBHOOK_URL }}
         run: node github-action-post.mjs
+
+      - name: Save news checker state
+        run: |
+          if git diff --quiet -- news-state.json; then
+            echo "No news state changes to save."
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add news-state.json
+            git commit -m "Update GW3 news checker state"
+            git push
+          fi
