@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GW3 Discord Timer</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="timer-shell">
+      <section class="countdown-panel" aria-labelledby="timer-title">
+        <div class="title-row">
+          <div>
+            <p class="eyebrow">Guild Wars 3</p>
+            <h1 id="timer-title">Release Countdown</h1>
+          </div>
+          <span class="status-pill" id="timer-status">Fall target</span>
+        </div>
+
+        <div class="countdown-grid" aria-live="polite">
+          <div class="time-cell">
+            <strong id="days">--</strong>
+            <span>Days</span>
+          </div>
+          <div class="time-cell">
+            <strong id="hours">--</strong>
+            <span>Hours</span>
+          </div>
+          <div class="time-cell">
+            <strong id="minutes">--</strong>
+            <span>Minutes</span>
+          </div>
+          <div class="time-cell">
+            <strong id="seconds">--</strong>
+            <span>Seconds</span>
+          </div>
+        </div>
+
+        <p class="release-line" id="release-line">Counting down to the start of Fall 2027 until the official Guild Wars site confirms a release date.</p>
+      </section>
+
+      <section class="controls-panel" aria-label="Timer controls">
+        <label class="field">
+          <span>Event name</span>
+          <input id="event-name" type="text" value="Guild Wars 3 release window" autocomplete="off">
+        </label>
+
+        <label class="field">
+          <span>Target date and time</span>
+          <input id="target-date" type="datetime-local">
+        </label>
+
+        <div class="button-row">
+          <button id="save-date" type="button">Save Timer</button>
+          <button id="check-official" type="button" class="secondary">Check Official Site</button>
+        </div>
+
+        <div class="official-box">
+          <h2>Official Date Check</h2>
+          <p id="official-status">Uses the local daily checker. Only dates found on guildwars.com are accepted.</p>
+          <p class="tiny-note" id="official-source"></p>
+        </div>
+
+        <div class="discord-box">
+          <div>
+            <h2>Discord Link</h2>
+            <p>Discord renders these timestamps live for everyone in their own timezone.</p>
+          </div>
+
+          <label class="field">
+            <span>Discord message</span>
+            <textarea id="discord-message" rows="4" readonly></textarea>
+          </label>
+
+          <div class="button-row">
+            <button id="copy-message" type="button">Copy Message</button>
+            <button id="copy-short" type="button" class="secondary">Copy Short Timestamp</button>
+          </div>
+        </div>
+
+        <details class="webhook-panel">
+          <summary>Optional Discord webhook sender</summary>
+          <label class="field">
+            <span>Webhook URL</span>
+            <input id="webhook-url" type="url" placeholder="https://discord.com/api/webhooks/...">
+          </label>
+          <label class="check-field">
+            <input id="remember-webhook" type="checkbox">
+            <span>Remember webhook URL on this computer</span>
+          </label>
+          <label class="check-field">
+            <input id="auto-post-daily" type="checkbox">
+            <span>Automatically send one Discord message every day while this timer is running</span>
+          </label>
+          <button id="send-webhook" type="button">Post To Discord</button>
+          <p class="tiny-note">Keep webhook URLs private. Anyone with the URL can post to that channel.</p>
+        </details>
+
+        <p class="feedback" id="feedback" role="status"></p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
